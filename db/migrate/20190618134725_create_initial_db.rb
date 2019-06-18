@@ -14,7 +14,7 @@ class CreateInitialDb < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    create_table :lists do |t|
+    create_table :check_lists do |t|
       t.string :title
       t.string :description
       t.string :project_uid
@@ -29,7 +29,7 @@ class CreateInitialDb < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :description
       t.string :answer
-      t.references :list, foreign_key: true
+      t.references :check_list, foreign_key: true
   
       t.timestamps
     end

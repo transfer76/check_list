@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'lists#index'
-  resources :lists
+  root 'check_lists#index'
+  resources :CheckListsController
 end

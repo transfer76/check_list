@@ -1,3 +1,3 @@
 class Question < ApplicationRecord
-  belongs_to :list
+  belongs_to :check_list
 end
