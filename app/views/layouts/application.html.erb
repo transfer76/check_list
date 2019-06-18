@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Checklist</title>
+    <link data-require="bootstrap@*" data-semver="4.1.3" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script data-require="bootstrap@*" data-semver="4.1.3" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,9 +13,30 @@
 
   <body>
 
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+
+      <%= link_to 'Checklist', root_path, class: 'navbar-brand' %>
+
+      <div>
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <%= current_user.email %><li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete  %></li>
+          <% else %>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
     <%= yield %>
+
+  <footer>
+    <p>&copy; <%= t 'Будущий программист' %> 2019</p>
+  </footer>
   </body>
 </html>

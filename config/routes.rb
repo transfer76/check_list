@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'check_lists#index'
+  root 'users#index'
   
   resources :check_lists
   resources :users
