@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_081506) do
+ActiveRecord::Schema.define(version: 2019_06_18_082038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_081506) do
   create_table "lists", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.string "project_id"
-    t.integer "table"
+    t.string "project_name"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,8 +28,11 @@ ActiveRecord::Schema.define(version: 2019_06_14_081506) do
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.string "answer"
+    t.bigint "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_questions_on_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +43,5 @@ ActiveRecord::Schema.define(version: 2019_06_14_081506) do
   end
 
   add_foreign_key "lists", "users"
+  add_foreign_key "questions", "lists"
 end
