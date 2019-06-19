@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_121303) do
   end
 
   create_table "form_questions", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "description"
     t.bigint "form_id"
     t.datetime "created_at", null: false

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lists</h1>
+<h1>Check Lists</h1>
 
 <table>
   <thead>
@@ -10,11 +10,11 @@
   </thead>
 
   <tbody>
-    <% @lists.each do |list| %>
+    <% @check_lists.each do |check_list| %>
       <tr>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_check_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', check_list %></td>
+        <td><%= link_to 'Edit', edit_check_list_path(check_list) %></td>
+        <td><%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New CheckList', new_check_list_path %>
+<%= link_to 'New Check List', new_check_list_path %>

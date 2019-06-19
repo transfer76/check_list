@@ -51,8 +51,8 @@ RSpec.describe CheckListsController, type: :controller do
 
   describe "GET #show" do
     it "returns a success response" do
-      list = CheckList.create! valid_attributes
-      get :show, params: {id: list.to_param}, session: valid_session
+      check_list = CheckList.create! valid_attributes
+      get :show, params: {id: check_list.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -66,8 +66,8 @@ RSpec.describe CheckListsController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      list = CheckList.create! valid_attributes
-      get :edit, params: {id: list.to_param}, session: valid_session
+      check_list = CheckList.create! valid_attributes
+      get :edit, params: {id: check_list.to_param}, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -76,19 +76,19 @@ RSpec.describe CheckListsController, type: :controller do
     context "with valid params" do
       it "creates a new CheckList" do
         expect {
-          post :create, params: {list: valid_attributes}, session: valid_session
+          post :create, params: {check_list: valid_attributes}, session: valid_session
         }.to change(CheckList, :count).by(1)
       end
 
-      it "redirects to the created list" do
-        post :create, params: {list: valid_attributes}, session: valid_session
+      it "redirects to the created check_list" do
+        post :create, params: {check_list: valid_attributes}, session: valid_session
         expect(response).to redirect_to(CheckList.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {list: invalid_attributes}, session: valid_session
+        post :create, params: {check_list: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
@@ -100,41 +100,41 @@ RSpec.describe CheckListsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested list" do
-        list = CheckList.create! valid_attributes
-        put :update, params: {id: list.to_param, list: new_attributes}, session: valid_session
-        list.reload
+      it "updates the requested check_list" do
+        check_list = CheckList.create! valid_attributes
+        put :update, params: {id: check_list.to_param, check_list: new_attributes}, session: valid_session
+        check_list.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the list" do
-        list = CheckList.create! valid_attributes
-        put :update, params: {id: list.to_param, list: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(list)
+      it "redirects to the check_list" do
+        check_list = CheckList.create! valid_attributes
+        put :update, params: {id: check_list.to_param, check_list: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(check_list)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
-        list = CheckList.create! valid_attributes
-        put :update, params: {id: list.to_param, list: invalid_attributes}, session: valid_session
+        check_list = CheckList.create! valid_attributes
+        put :update, params: {id: check_list.to_param, check_list: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested list" do
-      list = CheckList.create! valid_attributes
+    it "destroys the requested check_list" do
+      check_list = CheckList.create! valid_attributes
       expect {
-        delete :destroy, params: {id: list.to_param}, session: valid_session
+        delete :destroy, params: {id: check_list.to_param}, session: valid_session
       }.to change(CheckList, :count).by(-1)
     end
 
     it "redirects to the check_lists list" do
-      list = CheckList.create! valid_attributes
-      delete :destroy, params: {id: list.to_param}, session: valid_session
-      expect(response).to redirect_to(check_check_lists_url)
+      check_list = CheckList.create! valid_attributes
+      delete :destroy, params: {id: check_list.to_param}, session: valid_session
+      expect(response).to redirect_to(check_lists_url)
     end
   end
 

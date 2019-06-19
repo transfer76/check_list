@@ -1,61 +1,48 @@
 class CheckListsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_check_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lists = Checklist.all
+    @check_lists = CheckList.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
-    @list = Checklist.new
+    @check_list = CheckList.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
-    @list = CheckList.new(list_params)
+    @check_list = CheckList.new(check_list_params)
 
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'CheckList was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @check_list.save
+      redirect_to @check_list, notice: 'Check list was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'CheckList was successfully updated.' }
-        format.json { render :show, status: :ok, location: @list }
-      else
-        format.html { render :edit }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+    if @check_list.update(check_list_params)
+      redirect_to @check_list, notice: 'Check list was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
-    @list.destroy
-    respond_to do |format|
-      format.html { redirect_to check_check_lists_url, notice: 'CheckList was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @check_list.destroy
+    redirect_to check_lists_url, notice: 'Check list was successfully destroyed.'
   end
 
   private
-    def set_list
-      @list = Checklist.find(params[:id])
-    end
+  
+  def set_check_list
+    @check_list = CheckList.find(params[:id])
+  end
 
-    def list_params
-      params.fetch(:list, {}).permit(:title, :description, :project_id, :table)
-    end
+  def check_list_params
+    params.fetch(:check_list, {})
+  end
 end
