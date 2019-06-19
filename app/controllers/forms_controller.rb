@@ -1,4 +1,5 @@
 class FormsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   def index

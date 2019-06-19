@@ -12,6 +12,7 @@
   <tbody>
     <% @check_lists.each do |check_list| %>
       <tr>
+        <%= check_list.project_uid %>
         <td><%= link_to 'Show', check_list %></td>
         <td><%= link_to 'Edit', edit_check_list_path(check_list) %></td>
         <td><%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
