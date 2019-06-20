@@ -16,6 +16,7 @@ class FormsController < ApplicationController
 
   def create
     @form = Form.new(form_params)
+    @form.user = current_user
 
     if @form.save
       redirect_to @form, notice: 'Form was successfully created.'
@@ -40,10 +41,10 @@ class FormsController < ApplicationController
   private
   
   def set_form
-    @form = Form.find(params[:id])
+    @form = current_user.forms.find(params[:id])
   end
 
   def form_params
-    params.fetch(:form, {})
+    params.require(:form).permit(:title, :description)
   end
 end

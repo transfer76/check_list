@@ -1,5 +1,5 @@
-<%= form_with(model: form, local: true) do |form| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @form} %>
+<%= form_with(model: [form_question.form, form_question], local: true) do |form| %>
+  <%= render partial: 'partials/form_errors', locals: {model: form_question} %>
 
   <div class="form-group">
     <%= form.label :title %><br />
@@ -10,6 +10,8 @@
     <%= form.label :description %><br />
     <%= form.text_area :description %>
   </div>
+
+  <%= form.hidden_field :form_id %>
 
   <div class="actions">
     <%= form.submit %>
