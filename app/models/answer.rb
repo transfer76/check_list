@@ -4,7 +4,7 @@ class Answer < ApplicationRecord
   belongs_to :user
 
   validates :value, presence: true
-  validates :value, length: { minimum: 12 }
+  validates :comment, length: { minimum: 12 }
 
   validate :check_form_question_id
 
