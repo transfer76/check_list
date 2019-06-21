@@ -1,4 +1,6 @@
 class Answer < ApplicationRecord
+  enum value: [:none, :yes, :no, :na]
+
   belongs_to :check_list
   belongs_to :form_question
   belongs_to :user

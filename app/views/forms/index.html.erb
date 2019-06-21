@@ -7,7 +7,7 @@
   <tr>
     <% @forms.each do |form| %>
       <td><%= form.title %></td>
-        <td><%= link_to 'Show', form_path %></td>
+        <td><%= link_to 'Show', form_path(form) %></td>
         <td><%= link_to 'Edit', edit_form_path(form) %></td>
     <% end %>
   </tr>

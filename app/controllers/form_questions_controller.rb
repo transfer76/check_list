@@ -31,6 +31,10 @@ class FormQuestionsController < ApplicationController
     @form = current_user.forms.find(params[:form_id])
   end
 
+  def set_form_question
+    @form_question = @form.form_questions.find(params[:id])
+  end
+
   def form_question_params
     params.require(:form_question).permit(:title, :description)
   end
