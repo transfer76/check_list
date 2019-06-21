@@ -1,15 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <tbody>
-    <tr>
+<h2>Form Questions</h2>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+    <tbody>
       <% @form.form_questions.each do |q| %>
-        <td><%= q.title %></td>
-        <td><%= q.description %></td>
+        <tr>
+          <td><%= q.title %></td>
+          <td><%= q.description %></td>
+          <td><%= link_to 'Edit', edit_form_form_question_path(q) %><br>
+              <%= link_to 'Destroy', form_path(q), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
       <% end %>
-    </tr>
-  </tbody>
+    </tbody>
 </table>
 
-<%= link_to 'Edit', edit_form_path(@form) %> |
+<div class="button">
+  <%= link_to 'New question', new_form_form_question_path(@form), class: 'btn btn-primary' %>
+</div>
+
+<br>
+
+<%= link_to 'Edit Form', edit_form_path(@form) %> |
 <%= link_to 'Back', forms_path %>

@@ -7,9 +7,7 @@ class FormQuestionsController < ApplicationController
     @form_question = @form.form_questions.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
     @form_question = @form.form_questions.new(form_question_params)
@@ -21,9 +19,15 @@ class FormQuestionsController < ApplicationController
     end
   end
 
-  def destroy
-
+  def update
+    if @form.form_questions.update(form_question_params)
+      redirect_to @form, notice: 'Question was successfully updated.'
+    else
+      render :edit
+    end
   end
+
+  def destroy; end
 
   private
 
