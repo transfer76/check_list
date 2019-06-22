@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Check Lists</h1>
+
+<%= form_with(model: @check_list, local: true) do |form| %>
+  <%= render partial: 'partials/form_errors', locals: {model: @check_list} %>
+
+  <div class="form-group">
+    <%= form.label :project_uid %><br />
+    <%= form.text_field :project_uid, autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :form_id %><br />
+    <%= form.select :form_id, @forms.map { |f| [f.title, f.id] } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @check_lists.each do |check_list| %>
+      <tr>
+        <td><%= check_list.project_uid %></td>
+        <td><%= check_list.title %></td>
+        <td><%= link_to 'Fill', edit_check_list_path(check_list) %></td>
+        <td><%= link_to 'Destroy', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Check List', new_check_list_path %>

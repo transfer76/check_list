@@ -27,7 +27,10 @@ class FormQuestionsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @form_question.destroy!
+    redirect_to form_url(@form), notice: 'Question was successfully destroyed.'
+  end
 
   private
 

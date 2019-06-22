@@ -15,8 +15,8 @@
         <tr>
           <td><%= q.title %></td>
           <td><%= q.description %></td>
-          <td><%= link_to 'Edit', edit_form_form_question_path(q) %><br>
-              <%= link_to 'Destroy', form_path(q), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_form_form_question_path(@form, q) %><br>
+              <%= link_to 'Destroy', form_form_question_path(@form, q), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>
     </tbody>

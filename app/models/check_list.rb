@@ -5,4 +5,6 @@ class CheckList < ApplicationRecord
   has_many :answers
 
   validates :project_uid, presence: true
+
+  delegate :title, :description, to: :form
 end
