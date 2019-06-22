@@ -21,23 +21,16 @@ class CheckListsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @check_list.update(check_list_params)
-        format.html { redirect_to @check_list, notice: 'Check list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @check_list }
-      else
-        format.html { render :edit }
-        format.json { render json: @check_list.errors, status: :unprocessable_entity }
-      end
+    if @check_list.update(check_list_params)
+      redirect_to @check_list, notice: 'Check list was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @check_list.destroy
-    respond_to do |format|
-      format.html { redirect_to check_lists_url, notice: 'Check list was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to check_lists_url, notice: 'Check list was successfully destroyed.'
   end
 
   private
