@@ -31,7 +31,7 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
-              <%= current_user.email %><li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete  %></li>
+              <%= current_user.username %><li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete  %></li>
             <% else %>
               <li><%= link_to 'Sign in', new_user_session_path %></li>
             <% end %>
