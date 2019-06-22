@@ -3,12 +3,10 @@ class CheckListsController < ApplicationController
 
   def index
     @check_list = current_user.check_lists.new
-    @forms = Form.select(:id, :title).order(:title).all
-    @check_lists = CheckList.all
+    prepare_data_for_index
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @check_list = CheckList.new(check_list_params)
@@ -17,9 +15,7 @@ class CheckListsController < ApplicationController
     if @check_list.save
       redirect_to action: :index, notice: 'Checklist was created'
     else
-      @forms = Form.select(:id, :title).order(:title).all
-      @check_lists = CheckList.all
-
+      prepare_data_for_index
       render :index
     end
   end
@@ -45,6 +41,11 @@ class CheckListsController < ApplicationController
   end
 
   private
+  
+  def prepare_data_for_index
+    @forms = Form.select(:id, :title).order(:title).all
+    @check_lists = CheckList.all
+  end
 
   def set_check_list
     @check_list = CheckList.find(params[:id])
