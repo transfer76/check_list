@@ -1,5 +1,5 @@
 <%= form_with(model: check_list, local: true) do |form| %>
-  <%= render partial: 'partials/form_errors', locals: {model: form_question} %>
+  <%= render partial: 'partials/form_errors', locals: {model: check_list} %>
 
   <div class="actions">
     <%= form.submit %>

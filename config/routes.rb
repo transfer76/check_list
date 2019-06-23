@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :forms do
     resources :form_questions
   end
-  resources :check_lists
+  resources :check_lists, except: [:show, :new]
 end
