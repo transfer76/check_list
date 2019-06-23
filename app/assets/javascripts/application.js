@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+    $('#checklist-button').click(function(){
+        $('#checklist-form').slideToggle(500);
+        return false;
+    });
+});

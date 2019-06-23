@@ -2,10 +2,7 @@
 
 <h1>Check Lists</h1>
 
-<%= form_with(model: @check_list, local: true) do |form| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @check_list} %>
-
-  <button type="button" class="btn btn-primary">Fill checklist</button>
+  <button type="button" class="btn btn-primary" id="checklist-button">Fill checklist</button>
 
   <div>
     <table class="table table-bordered">
@@ -33,19 +30,24 @@
     </table>
   </div>
 
+
+
+<%= form_with(model: @check_list, local: true) do |form| %>
+  <%= render partial: 'partials/form_errors', locals: {model: @check_list} %>
+
+  <div id="checklist-form">
   <div class="form-group">
     <%= form.label :project_uid %>
     <%= form.text_field :project_uid, autofocus: true %>
   </div>
 
   <div class="form-group">
-    <%= form.label :form_id %>
-    <%= form.select :form_id, @forms.map { |f| [f.title, f.id] } %>
+    <%= form.label 'Select checklist to fill' %>
+    <%= form.select :form_id, @forms.map { |f| [f.title, f.id] } %><br>
+    <%= form.submit %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
 
 <br>
