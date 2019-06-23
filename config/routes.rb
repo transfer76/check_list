@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :form_questions
   end
   resources :check_lists, except: [:show, :new]
+  resources :users
 end
