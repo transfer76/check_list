@@ -1,4 +1,5 @@
 class CheckListsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_check_list, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -34,7 +35,7 @@ class CheckListsController < ApplicationController
   end
 
   private
-  
+
   def prepare_data_for_index
     @forms = Form.select(:id, :title).order(:title).all
     @check_lists = CheckList.all

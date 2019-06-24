@@ -1,0 +1,23 @@
+.header-logo a {
+    color: white;
+}
+
+.header {
+    background: deepskyblue;
+    overflow: hidden;
+    vertical-align: baseline;
+    padding: 10px 40px;
+}
+
+.header-logo {
+    float: left;
+    margin-bottom: 40px;
+    color: white;
+    font-size: 24px;
+}
+
+.header-nav {
+    line-height: 34px;
+    float: right;
+    color: white;
+}
