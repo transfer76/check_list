@@ -21,7 +21,15 @@
             <td><%= check_list.project_uid %></td>
             <td><%= check_list.title %></td>
             <td><%= check_list.updated_at %></td>
-            <td><%= check_list.form_questions %></td>
+            <td>
+              <% p = percents_of_answers(check_list) %>
+              <div style="width: 100%">
+                <div class="bg-secondary color-strip" style="width: <%= p[:absent] %>%;"></div>
+                <div class="color-strip" style="width: <%= p[:na] %>%; background-color: purple"></div>
+                <div class="bg-success color-strip" style="width: <%= p[:yes] %>%;"></div>
+                <div class="bg-danger color-strip" style="width: <%= p[:no] %>%;"></div>
+              </div>
+            </td>
             <td><%= link_to 'Fillin', edit_check_list_path(check_list) %><br>
                 <%= link_to 'Delete', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
@@ -44,7 +52,8 @@
   <div class="form-group">
     <%= form.label 'Select checklist to fill' %>
     <%= form.select :form_id, @forms.map { |f| [f.title, f.id] } %><br>
-    <%= form.submit %>
+    <%= form.submit 'CANCEL'%>
+    <%= form.submit 'FILLIN'%>
     </div>
   </div>
 

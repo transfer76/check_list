@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_121303) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.integer "value", default: 0
+    t.integer "response", default: 0
     t.text "comment"
     t.bigint "form_question_id"
     t.bigint "user_id"

@@ -10,7 +10,7 @@ class CheckListsController < ApplicationController
   def edit; end
 
   def create
-    @check_list = CheckList.new(check_list_params)
+    @check_list = CheckList.new(check_list_create_params)
     @check_list.user = current_user
 
     if @check_list.save
@@ -22,8 +22,13 @@ class CheckListsController < ApplicationController
   end
 
   def update
-    if @check_list.update(check_list_params)
-      redirect_to @check_list, notice: 'Check list was successfully updated.'
+    @check_list.assign_attributes(check_list_update_params)
+    @check_list.answers.each do |answer|
+      answer.user = current_user if answer.changed?
+    end
+
+    if @check_list.save
+      redirect_to action: :index, notice: 'Check list was successfully updated.'
     else
       render :edit
     end
@@ -45,7 +50,11 @@ class CheckListsController < ApplicationController
     @check_list = CheckList.find(params[:id])
   end
 
-  def check_list_params
+  def check_list_create_params
     params.require(:check_list).permit(:project_uid, :form_id)
+  end
+
+  def check_list_update_params
+    params.require(:check_list).permit(answers_attributes: [:id, :response, :comment])
   end
 end

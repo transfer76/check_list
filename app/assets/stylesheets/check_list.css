@@ -5,3 +5,20 @@
 #checklist-button {
     margin-bottom: 10px;
 }
+
+.list-button {
+    float: right;
+    margin-top: 15px;
+}
+
+.title {
+	text-align: center;
+}
+
+.color-strip {
+  height: 1em;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  float: left;
+}

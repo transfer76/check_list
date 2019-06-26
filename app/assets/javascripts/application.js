@@ -16,7 +16,7 @@
 //= require twitter/bootstrap
 //= require_tree .
 
-$(function(){
+$(document).on('turbolinks:load', function(){
     $('#checklist-button').click(function(){
         $('#checklist-form').slideToggle(500);
         return false;

@@ -1,11 +1,11 @@
 class Answer < ApplicationRecord
-  enum value: [:none, :yes, :no, :na]
+  enum response: [:absent, :yes, :no, :na]
 
   belongs_to :check_list
   belongs_to :form_question
   belongs_to :user
 
-  validates :value, presence: true
+  validates :response, presence: true
   validates :comment, length: { minimum: 12 }
 
   validate :check_form_question_id

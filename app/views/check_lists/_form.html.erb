@@ -1,6 +1,18 @@
 <%= form_with(model: check_list, local: true) do |form| %>
   <%= render partial: 'partials/form_errors', locals: {model: check_list} %>
 
+  <%= form.fields_for :answers do |answer_form| %>
+    <div class="form-group">
+      <%= answer_form.label :comment %><br />
+      <%= answer_form.text_field :comment %>
+    </div>
+
+    <div class="form-group">
+      <%= answer_form.label 'Select checklist to fill' %>
+      <%= answer_form.select :response, Answer.responses.map { |key, value| [key.humanize, key] } %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
