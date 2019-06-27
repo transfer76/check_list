@@ -8,7 +8,7 @@
     </div>
 
     <div class="form-group">
-      <%= answer_form.label 'Select checklist to fill' %>
+      <%= answer_form.label :response %>
       <%= answer_form.select :response, Answer.responses.map { |key, value| [key.humanize, key] } %>
     </div>
   <% end %>
