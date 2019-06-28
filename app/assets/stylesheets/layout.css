@@ -3,7 +3,6 @@
 }
 
 .header {
-    background: deepskyblue;
     overflow: hidden;
     vertical-align: baseline;
     padding: 10px 40px;
@@ -19,4 +18,8 @@
     line-height: 34px;
     float: right;
     color: white;
+}
+
+.header-nav a {
+    color: black;
 }

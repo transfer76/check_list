@@ -6,7 +6,7 @@ class CheckList < ApplicationRecord
 
   validates :project_uid, presence: true
 
-  delegate :title, :form_questions, :description, to: :form
+  delegate :title, :description, to: :form
 
   before_create :initialize_answers
 

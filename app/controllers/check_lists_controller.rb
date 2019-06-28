@@ -14,7 +14,7 @@ class CheckListsController < ApplicationController
     @check_list.user = current_user
 
     if @check_list.save
-      redirect_to action: :index, notice: 'Checklist was created'
+      redirect_to({action: :index}, {notice: 'Checklist was created'})
     else
       prepare_data_for_index
       render :index
@@ -28,7 +28,7 @@ class CheckListsController < ApplicationController
     end
 
     if @check_list.save
-      redirect_to action: :index, notice: 'Check list was successfully updated.'
+      redirect_to({action: :index}, {notice: 'Check list was successfully updated.'})
     else
       render :edit
     end
