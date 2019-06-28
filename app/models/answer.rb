@@ -10,6 +10,8 @@ class Answer < ApplicationRecord
 
   validate :check_form_question_id
 
+  delegate :title, :description, to: :form_question
+
   private
 
   def check_form_question_id

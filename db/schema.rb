@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_121303) do
 
   create_table "check_lists", force: :cascade do |t|
     t.string "project_uid"
+    t.datetime "published_at"
     t.boolean "published", default: false
     t.bigint "form_id"
     t.bigint "user_id"

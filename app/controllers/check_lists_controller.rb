@@ -1,6 +1,6 @@
 class CheckListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_check_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_check_list, only: [:show, :edit, :update, :publish, :destroy]
 
   def index
     @check_list = current_user.check_lists.new
@@ -32,6 +32,12 @@ class CheckListsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def publish
+    @check_list.publish!
+
+    redirect_to({action: :index}, {notice: 'Check list was successfully published.'})
   end
 
   def destroy

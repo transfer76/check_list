@@ -10,4 +10,20 @@ module CheckListsHelper
       na: (answers.count('na') / total_count * 100).round,
     }
   end
+
+  def check_list_status_text(check_list)
+    if check_list.published?
+      'Published'
+    else
+      "Draft (#{check_list.updated_at.strftime('%d.%m.%Y')})"
+    end
+  end
+
+  def check_list_published_text(check_list)
+    if check_list.published?
+      check_list.published_at.strftime('%d.%m.%Y')
+    else
+      "Not published"
+    end
+  end
 end

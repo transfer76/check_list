@@ -25,6 +25,7 @@ class CreateInitialDb < ActiveRecord::Migration[5.2]
 
     create_table :check_lists do |t|
       t.string :project_uid
+      t.datetime :published_at
       t.boolean :published, default: false
       t.references :form, foreign_key: true
       t.references :user, foreign_key: true

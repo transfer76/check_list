@@ -12,6 +12,10 @@ class CheckList < ApplicationRecord
 
   accepts_nested_attributes_for :answers
 
+  def publish!
+    update!(published: true, published_at: Time.now)
+  end
+
   private
 
   def initialize_answers

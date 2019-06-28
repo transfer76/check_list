@@ -1,6 +1,6 @@
 <%= form_with(model: check_list, local: true) do |form| %>
   <%= render partial: 'partials/form_errors', locals: {model: check_list} %>
-  
+
   <div class="actions">
     <%= form.submit 'Save' %>
   </div>
@@ -8,7 +8,8 @@
   <%= form.fields_for :answers do |answer_form| %>
     <div class="card">
       <div class="card-body">
-        <%= answer_form.text_area :form_question %>
+        <%= answer_form.object.title %><br>
+        <%= answer_form.object.description %>
         <%= answer_form.select :response, Answer.responses.map { |key, value| [key.humanize, key] } %>
         <%= answer_form.text_area :comment %>
       </div>

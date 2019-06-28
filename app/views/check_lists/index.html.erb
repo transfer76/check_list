@@ -12,6 +12,8 @@
         <th scope="col">Checklist</th>
         <th scope="col">Updated</th>
         <th scope="col">Questions</th>
+        <th scope="col">Status</th>
+        <th scope="col">Published</th>
         <th scope="col">Action</th>
       </tr>
       </thead>
@@ -30,7 +32,10 @@
                 <div class="bg-danger color-strip" style="width: <%= p[:no] %>%;"></div>
               </div>
             </td>
-            <td><%= link_to 'Fillin', edit_check_list_path(check_list) %><br>
+            <td><%= check_list_status_text(check_list) %></td>
+            <td><%= check_list_published_text(check_list) %></td>
+            <td><%= link_to 'Publish', publish_check_list_path(check_list), method: :put %><br>
+                <%= link_to 'Fillin', edit_check_list_path(check_list) %><br>
                 <%= link_to 'Delete', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
