@@ -2,6 +2,10 @@ class FormsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
+  after_action :verify_authorized, except: [:index, :show]
+  after_action :verify_policy_scoped, except: [:index, :show]
+
+
   def index
     @forms = Form.all
   end
@@ -9,12 +13,18 @@ class FormsController < ApplicationController
   def show; end
 
   def new
+    authorize @form
+
     @form = Form.new
   end
 
-  def edit; end
+  def edit
+    authorize @form
+  end
 
   def create
+    authorize @form
+
     @form = Form.new(form_params)
     @form.user = current_user
 
@@ -26,6 +36,8 @@ class FormsController < ApplicationController
   end
 
   def update
+    authorize @form
+
     if @form.update(form_params)
       redirect_to @form, notice: 'Form was successfully updated.'
     else
@@ -34,12 +46,14 @@ class FormsController < ApplicationController
   end
 
   def destroy
+    authorize @form
+
     @form.destroy
     redirect_to forms_url, notice: 'Form was successfully destroyed.'
   end
 
   private
-  
+
   def set_form
     @form = current_user.forms.find(params[:id])
   end

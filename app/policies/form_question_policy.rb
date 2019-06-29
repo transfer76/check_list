@@ -1,4 +1,4 @@
-class FormPolicy < ApplicationPolicy
+class FormQuestionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all if user.admin?
@@ -16,6 +16,4 @@ class FormPolicy < ApplicationPolicy
   def destroy?
     user.admin?
   end
-  # 1.possible edit and delete form without checklists only
-  # 2.only admin can perform actions on the form
 end
