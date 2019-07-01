@@ -2,16 +2,23 @@ class CheckListsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_check_list, only: [:show, :edit, :update, :publish, :destroy]
 
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
+
   def index
     @check_list = current_user.check_lists.new
     prepare_data_for_index
   end
 
-  def edit; end
+  def edit
+    authorize @check_list
+  end
 
   def create
     @check_list = CheckList.new(check_list_create_params)
     @check_list.user = current_user
+
+    authorize @check_list
 
     if @check_list.save
       redirect_to({action: :index}, {notice: 'Checklist was created'})
@@ -22,6 +29,8 @@ class CheckListsController < ApplicationController
   end
 
   def update
+    authorize @check_list
+
     @check_list.assign_attributes(check_list_update_params)
     @check_list.answers.each do |answer|
       answer.user = current_user if answer.changed?
@@ -35,12 +44,16 @@ class CheckListsController < ApplicationController
   end
 
   def publish
+    authorize @check_list
+
     @check_list.publish!
 
     redirect_to({action: :index}, {notice: 'Check list was successfully published.'})
   end
 
   def destroy
+    authorize @check_list
+
     @check_list.destroy
     redirect_to check_lists_url, notice: 'Check list was successfully destroyed.'
   end
@@ -48,8 +61,8 @@ class CheckListsController < ApplicationController
   private
 
   def prepare_data_for_index
+    @check_lists = policy_scope(CheckList)
     @forms = Form.select(:id, :title).order(:title).all
-    @check_lists = CheckList.all
   end
 
   def set_check_list

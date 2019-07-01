@@ -1,19 +1,19 @@
 class FormQuestionPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all if user.admin?
+      scope.all #if user.admin?
     end
   end
 
   def create?
-    user.admin?
+    true #user.admin?
   end
 
   def update?
-    user.admin?
+    true #user.admin?
   end
 
   def destroy?
-    user.admin?
+    true #user.admin?
   end
 end

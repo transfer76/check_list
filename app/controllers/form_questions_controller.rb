@@ -1,10 +1,10 @@
 class FormQuestionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_form
-  before_action :set_form_question, only: [:edit, :destroy]
+  before_action :set_form_question, only: [:edit, :update, :destroy]
 
   after_action :verify_authorized
-  after_action :verify_policy_scoped
+  # after_action :verify_policy_scoped
 
   def new
     authorize @form_question
@@ -31,7 +31,7 @@ class FormQuestionsController < ApplicationController
   def update
     authorize @form_question
 
-    if @form.form_questions.update(form_question_params)
+    if @form_question.update(form_question_params)
       redirect_to @form, notice: 'Question was successfully updated.'
     else
       render :edit

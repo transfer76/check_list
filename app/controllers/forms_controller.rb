@@ -3,7 +3,7 @@ class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   after_action :verify_authorized, except: [:index, :show]
-  after_action :verify_policy_scoped, except: [:index, :show]
+  # after_action :verify_policy_scoped, except: [:index, :show]
 
 
   def index

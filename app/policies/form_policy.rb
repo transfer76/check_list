@@ -1,7 +1,7 @@
 class FormPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all if user.admin?
+      scope.all #if user.admin?
     end
   end
 
@@ -10,7 +10,7 @@ class FormPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin?
+   user.admin?
   end
 
   def destroy?

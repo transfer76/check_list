@@ -14,15 +14,11 @@
           <td><%= form.title %></td>
           <td><%= form.description %></td>
           <td><%= link_to 'Show', form_path(form) %><br>
-            <% if policy(@form).update? %>
               <%= link_to 'Edit', edit_form_path(form) %>
-            <% end %>
           </td>
         </tr>
       <% end %>
     </tbody>
 </table>
-<% if policy(@form).create? %>
   <%= link_to 'New Form', new_form_path, class: 'btn btn-primary' %>
-<% end %>
 <%= link_to 'Add CheckList', check_lists_path, class: 'btn btn-primary'  %>
