@@ -40,14 +40,6 @@ class CheckListsController < ApplicationController
     end
   end
 
-  def publish
-    authorize @check_list
-
-    @check_list.publish!
-
-    redirect_to({action: :index}, {notice: 'Check list was successfully published.'})
-  end
-
   def destroy
     authorize @check_list
 

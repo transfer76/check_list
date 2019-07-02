@@ -15,10 +15,6 @@ class CheckListPolicy < ApplicationPolicy
     true
   end
 
-  def publish?
-    user.admin? || record.user == user
-  end
-
   def update?
     show?
   end

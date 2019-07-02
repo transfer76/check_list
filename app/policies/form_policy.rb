@@ -17,6 +17,10 @@ class FormPolicy < ApplicationPolicy
    user.admin?
   end
 
+  def publish?
+    user.admin?
+  end
+
   def destroy?
     user.admin?
   end

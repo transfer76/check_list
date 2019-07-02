@@ -44,6 +44,15 @@ class FormsController < ApplicationController
     end
   end
 
+  def publish
+    authorize @form
+
+    @form.publish!
+
+    redirect_to @form, notice: 'Form was successfully published.'
+  end
+
+
   def destroy
     authorize @form
 
