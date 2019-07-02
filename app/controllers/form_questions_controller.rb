@@ -4,9 +4,9 @@ class FormQuestionsController < ApplicationController
   before_action :set_form_question, only: [:edit, :update, :destroy]
 
   def new
-    authorize @form_question
-
     @form_question = @form.form_questions.new
+
+    authorize @form_question
   end
 
   def edit
@@ -14,9 +14,9 @@ class FormQuestionsController < ApplicationController
   end
 
   def create
-    authorize @form_question
-
     @form_question = @form.form_questions.new(form_question_params)
+
+    authorize @form_question
 
     if @form_question.save
       redirect_to @form, notice: 'Question was successfully created.'

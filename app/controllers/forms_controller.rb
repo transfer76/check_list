@@ -12,9 +12,9 @@ class FormsController < ApplicationController
   end
 
   def new
-    authorize @form
-
     @form = Form.new
+
+    authorize @form
   end
 
   def edit
