@@ -4,13 +4,11 @@ Rails.application.routes.draw do
 
   resources :forms do
     resources :form_questions
-  end
-
-  resources :check_lists, except: [:show, :new] do
     member do
       put :publish
     end
   end
 
+  resources :check_lists, except: [:show, :new]
   resources :users
 end
