@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'forms#index'
+  root 'check_lists#index'
 
   resources :forms do
     resources :form_questions
