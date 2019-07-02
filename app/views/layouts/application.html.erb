@@ -21,9 +21,7 @@
   <body>
     <div class="header bg-info">
       <div class="container">
-        <div class="header-logo">
-          <%= link_to 'CheckList', forms_path, class: 'navbar-brand' %>
-        </div>
+        <div class="header-logo navbar-brand">CheckList</div>
         <div class="header-nav">
           <% if user_signed_in? %>
             <%= "@#{current_user.username}" %>
