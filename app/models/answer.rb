@@ -6,7 +6,7 @@ class Answer < ApplicationRecord
   belongs_to :user
 
   validates :response, presence: true
-  validates :comment, length: { minimum: 12 }
+  validates :comment, length: { minimum: 12 }, allow_blank: true
 
   validate :check_form_question_id
 
