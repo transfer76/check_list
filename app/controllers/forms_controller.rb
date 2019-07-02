@@ -2,15 +2,18 @@ class FormsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
-  after_action :verify_authorized, except: [:index, :show]
-  # after_action :verify_policy_scoped, except: [:index, :show]
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
 
   def index
+    @forms = policy_scope(Form)
     @forms = Form.all
   end
 
-  def show; end
+  def show
+    authorize @form
+  end
 
   def new
     authorize @form
@@ -23,10 +26,10 @@ class FormsController < ApplicationController
   end
 
   def create
-    authorize @form
-
     @form = Form.new(form_params)
     @form.user = current_user
+
+    authorize @form
 
     if @form.save
       redirect_to @form, notice: 'Form was successfully created.'
