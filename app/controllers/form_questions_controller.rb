@@ -3,8 +3,6 @@ class FormQuestionsController < ApplicationController
   before_action :set_form
   before_action :set_form_question, only: [:edit, :update, :destroy]
 
-  after_action :verify_authorized
-
   def new
     authorize @form_question
 

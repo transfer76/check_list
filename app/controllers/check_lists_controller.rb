@@ -2,9 +2,6 @@ class CheckListsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_check_list, only: [:show, :edit, :update, :publish, :destroy]
 
-  after_action :verify_authorized, except: :index
-  after_action :verify_policy_scoped, only: :index
-
   def index
     @check_list = current_user.check_lists.new
     prepare_data_for_index
