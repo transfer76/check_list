@@ -3,8 +3,8 @@ class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   def index
-    @forms = policy_scope(Form)
     @forms = Form.all
+    @forms = policy_scope(Form)
   end
 
   def show
