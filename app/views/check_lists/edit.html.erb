@@ -3,10 +3,10 @@
     <h1><%= @check_list.title %></h1>
 	<h5><%= @check_list.description %></h5>
   </div>
-  
+
   <button type="button" class="list-button btn btn-light btn-lg">Save</button>
 
 </div>
 <%= render 'form', check_list: @check_list %>
 
-<%= link_to 'Back', check_lists_path %>
+<%= link_to 'Back', check_lists_path, data: { confirm: 'Are you sure?' } %>
