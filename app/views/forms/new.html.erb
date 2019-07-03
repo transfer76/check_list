@@ -1,7 +1,7 @@
+<div class="button fa fa-arrow-left">
+  <%= link_to 'Back', forms_path, class: "btn btn-outline-dark", data: { confirm: 'Are you sure?' } %>
+</div>
+
 <h1>New Form</h1>
 
 <%= render 'form', form: @form %>
-
-<br>
-
-<%= link_to 'Back', forms_path, data: { confirm: 'Are you sure?' } %>
