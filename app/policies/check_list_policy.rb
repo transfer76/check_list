@@ -20,6 +20,6 @@ class CheckListPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || record.user == user
+    show?
   end
 end
