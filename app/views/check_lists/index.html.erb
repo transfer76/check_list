@@ -28,8 +28,9 @@
               <div class="bg-danger color-strip" style="width: <%= p[:no] %>%;"></div>
             </div>
           </td>
-          <td><%= link_to 'Edit', edit_check_list_path(check_list) %><br>
-              <%= link_to 'Delete', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <%= link_to 'Edit', edit_check_list_path(check_list), class: 'block-link' %>
+            <%= link_to 'Delete', check_list, method: :delete, data: { confirm: 'Are you sure?' }, class: 'block-link' %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,12 +1,14 @@
-<div class="container">
-  <div class="title col-md-10">
-    <h1><%= @check_list.title %></h1>
-	<h5><%= @check_list.description %></h5>
-  </div>
-
-  <button type="button" class="list-button btn btn-light btn-lg">Save</button>
-
+<div class="button fa fa-arrow-left">
+  <%= link_to 'Back', check_lists_path, class: "btn btn-outline-dark", data: { confirm: 'Are you sure?' } %>
 </div>
-<%= render 'form', check_list: @check_list %>
 
-<%= link_to 'Back', check_lists_path, data: { confirm: 'Are you sure?' } %>
+<div class="container">
+  <div class="row">
+    <div class="title col-md-10">
+      <h1><%= @check_list.title %></h1>
+  	  <h5><%= @check_list.description %></h5>
+    </div>
+  </div>
+</div>
+
+<%= render 'form', check_list: @check_list %>

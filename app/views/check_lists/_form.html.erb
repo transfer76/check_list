@@ -1,8 +1,8 @@
 <%= form_with(model: check_list, local: true) do |form| %>
   <%= render partial: 'partials/form_errors', locals: {model: check_list} %>
 
-  <div class="actions">
-    <%= form.submit 'Save' %>
+  <div class="actions btn">
+    <%= form.submit 'Save', class: 'btn btn-primary' %>
   </div>
 
   <%= form.fields_for :answers do |answer_form| %>
@@ -15,5 +15,4 @@
       </div>
     </div>
   <% end %>
-
 <% end %>
