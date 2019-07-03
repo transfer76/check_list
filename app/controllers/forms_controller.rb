@@ -1,6 +1,6 @@
 class FormsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_form, only: [:show, :edit, :update, :destroy]
+  before_action :set_form, only: [:show, :edit, :update, :publish, :destroy]
 
   def index
     @forms = Form.all
@@ -49,7 +49,7 @@ class FormsController < ApplicationController
 
     @form.publish!
 
-    redirect_to @form, notice: 'Form was successfully published.'
+    redirect_to({action: :index}, {notice: 'Form was successfully published.'})
   end
 
 
