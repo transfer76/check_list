@@ -18,10 +18,10 @@
           <td><%= form_status_text(form) %></td>
           <td><%= form_published_text(form) %></td>
           <td>
-            <%= link_to 'Show', form_path(form) if policy(form).show? %><br>
-            <%= link_to 'Publish', publish_form_path(form), method: :put if policy(form).publish? %><br>
-            <%= link_to 'Edit', edit_form_path(form) if policy(form).edit? %><br>
-            <%= link_to 'Delete', form, method: :delete, data: { confirm: 'Are you sure?' } if policy(form).destroy? %>
+            <%= link_to 'Show', form_path(form), class: 'block-link' if policy(form).show? %>
+            <%= link_to 'Publish', publish_form_path(form), method: :put, class: 'block-link' if policy(form).publish?  %>
+            <%= link_to 'Edit', edit_form_path(form), class: 'block-link' if policy(form).edit?  %>
+            <%= link_to 'Delete', form, method: :delete, data: { confirm: 'Are you sure?' }, class: 'block-link' if policy(form).destroy? %>
           </td>
         </tr>
       <% end %>
