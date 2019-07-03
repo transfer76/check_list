@@ -45,7 +45,7 @@ class FormQuestionsController < ApplicationController
   private
 
   def set_form
-    @form = current_user.forms.find(params[:form_id])
+    @form = Form.find(params[:form_id])
   end
 
   def set_form_question
