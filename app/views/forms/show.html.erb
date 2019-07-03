@@ -1,3 +1,7 @@
+<div class="button fa fa-arrow-left">
+  <%= link_to 'Back', forms_path, class: "btn btn-outline-dark" %>
+</div>
+
 <h2>Form Questions</h2>
 
 <table class="table">
@@ -14,7 +18,7 @@
           <td><%= q.title %></td>
           <td><%= q.description %></td>
           <td>
-            <%= link_to 'Edit', edit_form_form_question_path(@form, q) %><br>
+            <%= link_to 'Edit', edit_form_form_question_path(@form, q), class: 'block-link' %>
             <%= link_to 'Destroy', form_form_question_path(@form, q), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
         </tr>
@@ -26,7 +30,6 @@
   <%= link_to 'New question', new_form_form_question_path(@form), class: 'btn btn-primary' %>
 </div>
 
-<br>
-
-<%= link_to 'Edit Form', edit_form_path(@form) %>
-<%= link_to 'Back', forms_path %>
+<div class="button">
+  <%= link_to 'Edit Form', edit_form_path(@form), class: 'btn btn-primary' %>
+</div>
