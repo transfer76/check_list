@@ -1,9 +1,9 @@
 class FormsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_admin!
   before_action :set_form, only: [:show, :edit, :update, :publish, :destroy]
 
   def index
-    @forms = Form.all
     @forms = policy_scope(Form)
   end
 

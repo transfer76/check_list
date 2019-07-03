@@ -51,7 +51,7 @@ class CheckListsController < ApplicationController
 
   def prepare_data_for_index
     @check_lists = policy_scope(CheckList)
-    @forms = Form.select(:id, :title).order(:title).all
+    @forms = Form.published.select(:id, :title).order(:title).all
   end
 
   def set_check_list

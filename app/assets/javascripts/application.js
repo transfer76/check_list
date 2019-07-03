@@ -17,8 +17,8 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
-    $('#checklist-button').click(function(){
-        $('#checklist-form').slideToggle(500);
-        return false;
-    });
+  $('#checklist-button, #cancel-button').click(function(){
+    $('#checklist-form').slideToggle(500);
+    return false;
+  });
 });

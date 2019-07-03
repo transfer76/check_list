@@ -3,12 +3,12 @@ class CheckListPolicy < ApplicationPolicy
     def resolve
       return scope.all if user.admin?
 
-      scope.where('user_id = ? OR published', user.id)
+      scope.where(user: user)
     end
   end
 
   def show?
-    user.admin? || record.published? || record.user == user
+    user.admin? || record.user == user
   end
 
   def create?
@@ -20,6 +20,6 @@ class CheckListPolicy < ApplicationPolicy
   end
 
   def destroy?
-    publish?
+    user.admin? || record.user == user
   end
 end

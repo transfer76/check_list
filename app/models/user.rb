@@ -8,4 +8,12 @@ class User < ApplicationRecord
   def admin?
     has_role?(:admin)
   end
+
+  def admin
+    admin?
+  end
+
+  def admin=(value)
+    add_role(:admin) if value && value == '1'
+  end
 end

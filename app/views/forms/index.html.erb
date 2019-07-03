@@ -17,12 +17,11 @@
           <td><%= form.description %></td>
           <td><%= form_status_text(form) %></td>
           <td><%= form_published_text(form) %></td>
-          <td><%= link_to 'Show', form_path(form) %><br>
-              <% if !form.published %>
-                <%= link_to 'Publish', publish_form_path(form), method: :put %><br>
-                <%= link_to 'Edit', edit_form_path(form) %><br>
-                <%= link_to 'Delete', form, method: :delete, data: { confirm: 'Are you sure?' } %>
-              <% end %>
+          <td>
+            <%= link_to 'Show', form_path(form) if policy(form).show? %><br>
+            <%= link_to 'Publish', publish_form_path(form), method: :put if policy(form).publish? %><br>
+            <%= link_to 'Edit', edit_form_path(form) if policy(form).edit? %><br>
+            <%= link_to 'Delete', form, method: :delete, data: { confirm: 'Are you sure?' } if policy(form).destroy? %>
           </td>
         </tr>
       <% end %>

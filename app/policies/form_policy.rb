@@ -10,19 +10,19 @@ class FormPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    user.admin? && !record.published?
   end
 
   def update?
-   user.admin?
+   user.admin? && !record.published?
   end
 
   def publish?
-    user.admin?
+    user.admin? && !record.published?
   end
 
   def destroy?
-    user.admin?
+    user.admin? && !record.published?
   end
   # 1.possible edit and delete form without checklists only
   # 2.only admin can perform actions on the form

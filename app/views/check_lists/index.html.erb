@@ -1,44 +1,44 @@
 <h1>Check Lists</h1>
 
-  <button type="button" class="btn btn-primary" id="checklist-button">Fill checklist</button>
+<button type="button" class="btn btn-primary" id="checklist-button">Fill checklist</button>
 
-  <div>
-    <table class="table table-bordered">
-      <thead>
-      <tr>
-        <th scope="col">Project</th>
-        <th scope="col">Checklist</th>
-        <th scope="col">Updated</th>
-        <th scope="col">Questions</th>
-        <th scope="col">Action</th>
-      </tr>
-      </thead>
-      <tbody>
-        <% @check_lists.each do |check_list| %>
-          <tr>
-            <td><%= check_list.project_uid %></td>
-            <td><%= check_list.title %></td>
-            <td><%= check_list.updated_at %></td>
-            <td>
-              <% p = percents_of_answers(check_list) %>
-              <div style="width: 100%">
-                <div class="bg-secondary color-strip" style="width: <%= p[:absent] %>%;"></div>
-                <div class="color-strip" style="width: <%= p[:na] %>%; background-color: purple"></div>
-                <div class="bg-success color-strip" style="width: <%= p[:yes] %>%;"></div>
-                <div class="bg-danger color-strip" style="width: <%= p[:no] %>%;"></div>
-              </div>
-            </td>
-            <td><%= link_to 'Edit', edit_check_list_path(check_list) %><br>
-                <%= link_to 'Delete', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<div>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">Project</th>
+      <th scope="col">Checklist</th>
+      <th scope="col">Updated</th>
+      <th scope="col">Questions</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @check_lists.each do |check_list| %>
+        <tr>
+          <td><%= check_list.project_uid %></td>
+          <td><%= check_list.title %></td>
+          <td><%= check_list.updated_at %></td>
+          <td>
+            <% p = percents_of_answers(check_list) %>
+            <div style="width: 100%">
+              <div class="bg-secondary color-strip" style="width: <%= p[:absent] %>%;"></div>
+              <div class="color-strip" style="width: <%= p[:na] %>%; background-color: purple"></div>
+              <div class="bg-success color-strip" style="width: <%= p[:yes] %>%;"></div>
+              <div class="bg-danger color-strip" style="width: <%= p[:no] %>%;"></div>
+            </div>
+          </td>
+          <td><%= link_to 'Edit', edit_check_list_path(check_list) %><br>
+              <%= link_to 'Delete', check_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-  <% if policy(Form).show? %>
-    <p><%= link_to 'To Forms', forms_path, class: 'btn btn-primary' %></p>
-  <% end %>
+<% if policy(Form).show? %>
+  <p><%= link_to 'To Forms', forms_path, class: 'btn btn-primary' %></p>
+<% end %>
 
 <%= form_with(model: @check_list, local: true) do |form| %>
   <%= render partial: 'partials/form_errors', locals: {model: @check_list} %>
@@ -52,11 +52,10 @@
   <div class="form-group">
     <%= form.label 'Select checklist to fill' %>
     <%= form.select :form_id, @forms.map { |f| [f.title, f.id] } %><br>
-    <%= form.submit 'CANCEL'%>
-    <%= form.submit 'FILLIN'%>
+    <button type="button" class="btn" id="cancel-button">Cancel</button>
+    <%= form.submit 'FILLIN', class: 'btn btn-primary' %>
     </div>
   </div>
-
 <% end %>
 
 <br>

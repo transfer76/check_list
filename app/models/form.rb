@@ -6,6 +6,8 @@ class Form < ApplicationRecord
   validates :title, presence: true
   validates :title, :description, length: { minimum: 2 }
 
+  scope :published, -> { where('published') }
+
   def publish!
     update!(published: true, published_at: Time.now)
   end
