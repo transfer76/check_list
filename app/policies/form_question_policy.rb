@@ -6,14 +6,14 @@ class FormQuestionPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    user.admin? && !record.form.published?
   end
 
   def update?
-    user.admin?
+    create?
   end
 
   def destroy?
-    user.admin?
+    create?
   end
 end
