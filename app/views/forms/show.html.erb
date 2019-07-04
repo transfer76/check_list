@@ -18,18 +18,13 @@
           <td><%= q.title %></td>
           <td><%= q.description %></td>
           <td>
-            <%= link_to 'Edit', edit_form_form_question_path(@form, q), class: 'block-link' %>
-            <%= link_to 'Destroy', form_form_question_path(@form, q), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_form_form_question_path(@form, q), class: 'block-link' if policy(q).edit? %>
+            <%= link_to 'Destroy', form_form_question_path(@form, q), method: :delete, data: { confirm: 'Are you sure?' } if policy(q).destroy? %>
         </td>
         </tr>
       <% end %>
     </tbody>
 </table>
 
-<div class="button">
   <%= link_to 'New question', new_form_form_question_path(@form), class: 'btn btn-primary' %>
-</div>
-
-<div class="button">
   <%= link_to 'Edit Form', edit_form_path(@form), class: 'btn btn-primary' %>
-</div>
