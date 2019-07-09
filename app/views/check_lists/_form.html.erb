@@ -6,12 +6,20 @@
   </div>
 
   <%= form.fields_for :answers do |answer_form| %>
-    <div class="card">
-      <div class="card-body">
-        <%= answer_form.object.title %><br>
-        <%= answer_form.object.description %>
-        <%= answer_form.select :response, Answer.responses.map { |key, value| [key.humanize, key] } %>
-        <%= answer_form.text_area :comment %>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div class="row col-xs-5">
+            <%= answer_form.object.title %><br>
+            <%= answer_form.object.description %>
+          </div>
+          <div class="row col-xs-2">
+            <%= answer_form.select :response, Answer.responses.map { |key, value| [key.humanize, key] } %>
+          </div>
+          <div class="row col-xs-5">
+            <%= answer_form.text_area :comment %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
