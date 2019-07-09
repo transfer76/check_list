@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2019_07_02_220509) do
 
   create_table "check_lists", force: :cascade do |t|
     t.string "project_uid"
-    t.datetime "published_at"
     t.bigint "form_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
