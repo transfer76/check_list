@@ -17,6 +17,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv.load(__dir__ + '/.env')
+
 module Checklist
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
