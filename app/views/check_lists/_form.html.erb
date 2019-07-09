@@ -17,7 +17,8 @@
             <%= answer_form.select :response, Answer.responses.map { |key, value| [key.humanize, key] } %>
           </div>
           <div class="row col-xs-5">
-            <%= answer_form.text_area :comment %>
+            <%= answer_form.label :comment %>
+            <%= answer_form.text_area :comment, class: 'text-area', placeholder: 'Could you please enter your comment' %>
           </div>
         </div>
       </div>
