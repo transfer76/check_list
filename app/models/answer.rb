@@ -1,7 +1,7 @@
 class Answer < ApplicationRecord
   enum response: [:absent, :yes, :no, :na]
 
-  belongs_to :check_list
+  belongs_to :check_list, touch: true
   belongs_to :form_question
   belongs_to :user
 
