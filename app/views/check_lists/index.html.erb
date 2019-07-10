@@ -18,7 +18,7 @@
         <tr>
           <td><%= check_list.project_uid %></td>
           <td><%= check_list.title %></td>
-          <td><%= check_list.updated_at %></td>
+          <td><%= check_list.updated_at.strftime('%d.%m.%Y') %></td>
           <td>
             <% p = percents_of_answers(check_list) %>
             <div style="width: 100%">
