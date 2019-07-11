@@ -2,6 +2,8 @@
 
 ## Test Task
 
+### Requirements
+
 Create a system that allows users to create checklists, fill them in, and show results
 on the questions filling.
 A user can create a checklist with a dynamic amount of questions. A checklist has a
@@ -24,3 +26,40 @@ Admin users.
 2. Cover solution with Unit Tests with RSpec.
 We recommend using Ruby on Rails with Material Design UI components for the task
 implementation.
+
+### Description
+
+Task is implemented on **Ruby 2.5.3**
+
+**Ruby on Rails 5.2.3**
+
+Language: English
+
+Used gem for authorization and authentication: **Devise**, **Pundit**, **Rolify**
+
+Load configuration variables into ENV in development: gem **Dotenv**
+
+Database: **PostgreSQL**
+
+### To Start
+
+1. Clone this repositiry
+2. Install all necessary gems
+```
+$ Bundle
+```
+3. Create database and migraitions
+```
+$ bundle exec rails db:create
+$ bundle exec rails db:migrate
+```
+4. Add role Admin
+```
+$ rails c
+=> user = User.find(1)
+=> user.add_role :admin
+```
+5. To use mailer you need create .env file(see .env.exampl)
+```
+$ touch app/config/.env
+```
