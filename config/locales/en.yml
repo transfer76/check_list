@@ -36,4 +36,23 @@ en:
         answer:
           attributes:
             comment:
-              blank: "can't be blank if not Absent" 
+              blank: "can't be blank if not Absent"
+  errors:
+    one: '%{count} error'
+    other: '%{count} errors'
+
+  controllers:
+    checklist:
+      created: 'Checklist was created'
+      updated: 'Check list was successfully updated'
+      destroyed: 'Check list was successfully destroyed'
+    formquestion: 
+      created : 'Question was successfully created'
+      updated : 'Question was successfully updated'
+      destroyed: 'Question was successfully destroyed'
+    form:
+      created: 'Form was successfully created'
+      updated: 'Form was successfully updated'
+      published: 'Form was successfully published'
+      destroyed: 'Form was successfully destroyed'
+  

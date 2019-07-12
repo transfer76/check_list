@@ -18,7 +18,7 @@ class CheckListsController < ApplicationController
     authorize @check_list
 
     if @check_list.save
-      redirect_to({action: :index}, {notice: 'Checklist was created'})
+      redirect_to({action: :index}, {notice: I18n.t('controllers.checklist.created')})
     else
       prepare_data_for_index
       render :index
@@ -34,7 +34,7 @@ class CheckListsController < ApplicationController
     end
 
     if @check_list.save
-      redirect_to({action: :index}, {notice: 'Check list was successfully updated.'})
+      redirect_to({action: :index}, {notice: I18n.t('controllers.checklist.updated')})
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class CheckListsController < ApplicationController
     authorize @check_list
 
     @check_list.destroy
-    redirect_to check_lists_url, notice: 'Check list was successfully destroyed.'
+    redirect_to check_lists_url, notice: I18n.t('controllers.checklist.destroyed')
   end
 
   private

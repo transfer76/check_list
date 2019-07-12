@@ -19,7 +19,7 @@ class FormQuestionsController < ApplicationController
     authorize @form_question
 
     if @form_question.save
-      redirect_to @form, notice: 'Question was successfully created.'
+      redirect_to @form, notice: I18n.t('controllers.formquestion.created')
     else
       render :new
     end
@@ -29,7 +29,7 @@ class FormQuestionsController < ApplicationController
     authorize @form_question
 
     if @form_question.update(form_question_params)
-      redirect_to @form, notice: 'Question was successfully updated.'
+      redirect_to @form, notice: I18n.t('controllers.formquestion.updated')
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class FormQuestionsController < ApplicationController
     authorize @form_question
 
     @form_question.destroy!
-    redirect_to form_url(@form), notice: 'Question was successfully destroyed.'
+    redirect_to form_url(@form), notice: I18n.t('controllers.formquestion.destroyed')
   end
 
   private

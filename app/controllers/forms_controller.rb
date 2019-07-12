@@ -28,7 +28,7 @@ class FormsController < ApplicationController
     authorize @form
 
     if @form.save
-      redirect_to @form, notice: 'Form was successfully created.'
+      redirect_to @form, notice: I18n.t('controllers.form.created')
     else
       render :new
     end
@@ -38,7 +38,7 @@ class FormsController < ApplicationController
     authorize @form
 
     if @form.update(form_params)
-      redirect_to @form, notice: 'Form was successfully updated.'
+      redirect_to @form, notice: I18n.t('controllers.form.updated')
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class FormsController < ApplicationController
 
     @form.publish!
 
-    redirect_to({action: :index}, {notice: 'Form was successfully published.'})
+    redirect_to({action: :index}, {notice: I18n.t('controllers.form.published')})
   end
 
 
@@ -57,7 +57,7 @@ class FormsController < ApplicationController
     authorize @form
 
     @form.destroy
-    redirect_to forms_url, notice: 'Form was successfully destroyed.'
+    redirect_to forms_url, notice: I18n.t('controllers.form.destroyed')
   end
 
   private
