@@ -5,3 +5,7 @@
 .button {
   display: inline;
 }
+
+.form-btn {
+  margin-bottom: 10px;
+}
