@@ -37,10 +37,6 @@
   </table>
 </div>
 
-<% if policy(Form).show? %>
-  <p><%= link_to 'To Forms', forms_path, class: 'btn btn-primary' %></p>
-<% end %>
-
 <%= form_with(model: @check_list, local: true) do |form| %>
   <%= render partial: 'partials/form_errors', locals: {model: @check_list} %>
 

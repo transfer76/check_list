@@ -21,7 +21,11 @@
   <body>
     <div class="header bg-info">
       <div class="container">
-        <div class="header-logo navbar-brand">CheckList</div>
+        <div class="header-logo">
+          <p>CheckLists</p>
+          <span><%= link_to 'Filled checklists', root_path %></span>
+          <span><%= link_to 'Configure Checklists', forms_path %></span>
+        </div>
         <div class="header-nav">
           <% if user_signed_in? %>
             <%= "@#{current_user.username}" %>
