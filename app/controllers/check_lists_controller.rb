@@ -18,7 +18,7 @@ class CheckListsController < ApplicationController
     authorize @check_list
 
     if @check_list.save
-      redirect_to({action: :index}, {notice: I18n.t('controllers.checklist.created')})
+      render({action: :edit}, {notice: I18n.t('controllers.checklist.created')})
     else
       prepare_data_for_index
       render :index

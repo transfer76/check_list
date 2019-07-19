@@ -37,22 +37,4 @@
   </table>
 </div>
 
-<%= form_with(model: @check_list, local: true) do |form| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @check_list} %>
-
-  <div id="checklist-form">
-  <div class="form-group">
-    <%= form.label :project_uid %>
-    <%= form.text_field :project_uid, autofocus: true %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label 'Select checklist to fill' %>
-    <%= form.select :form_id, @forms.map { |f| [f.title, f.id] } %><br>
-    <button type="button" class="btn" id="cancel-button">Cancel</button>
-    <%= form.submit 'FILLIN', class: 'btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
-
-<br>
+<%= render 'fill_check_list', check_list: @check_list %>
