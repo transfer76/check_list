@@ -18,6 +18,7 @@ gem 'rolify'
 gem 'pundit', '~> 2.0.0'
 gem 'twitter-bootstrap-rails'
 gem 'dotenv'
+gem "cocoon"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
