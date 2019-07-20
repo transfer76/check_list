@@ -6,6 +6,8 @@ class Form < ApplicationRecord
   validates :title, presence: true
   validates :title, :description, length: { minimum: 2 }
 
+  accepts_nested_attributes_for :form_questions
+
   scope :published, -> { where('published') }
 
   def publish!

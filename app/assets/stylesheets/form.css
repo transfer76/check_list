@@ -9,3 +9,12 @@
 .form-btn {
   margin-bottom: 10px;
 }
+
+.placeholder::placeholder {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.border {
+	border: hidden;
+}

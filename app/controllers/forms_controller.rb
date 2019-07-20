@@ -13,6 +13,7 @@ class FormsController < ApplicationController
 
   def new
     @form = Form.new
+    @form.form_questions.build
 
     authorize @form
   end
@@ -67,6 +68,6 @@ class FormsController < ApplicationController
   end
 
   def form_params
-    params.require(:form).permit(:title, :description)
+    params.require(:form).permit(:title, :description, form_questions_attributes: [:id, :title, :description])
   end
 end
