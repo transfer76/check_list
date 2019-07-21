@@ -31,7 +31,7 @@ class FormsController < ApplicationController
     authorize @form
 
     if @form.save
-      redirect_to @form, notice: I18n.t('controllers.form.created')
+      redirect_to forms_path, notice: I18n.t('controllers.form.created')
     else
       render :new
     end
@@ -41,7 +41,7 @@ class FormsController < ApplicationController
     authorize @form
 
     if @form.update(form_params)
-      redirect_to @form, notice: I18n.t('controllers.form.updated')
+      redirect_to forms_path, notice: I18n.t('controllers.form.updated')
     else
       render :edit
     end
