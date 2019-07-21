@@ -10,6 +10,11 @@
     float: right;
 }
 
+.middle-button {
+  width: 40%;
+  margin-left: 60%;
+}
+
 .title {
 	text-align: center;
 }

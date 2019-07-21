@@ -17,6 +17,7 @@ gem 'reform-rails'
 gem 'rolify'
 gem 'pundit', '~> 2.0.0'
 gem 'twitter-bootstrap-rails'
+gem "font-awesome-rails"
 gem 'dotenv'
 gem "cocoon"
 

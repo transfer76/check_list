@@ -2,10 +2,6 @@
   display: block;
 }
 
-.button {
-  display: inline;
-}
-
 .form-button {
 	margin: 2em,0;
 	width: 40%;
