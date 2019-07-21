@@ -16,14 +16,15 @@
         <%= form.text_field :description, class: 'form-control', type: 'text', placeholder: 'Form detailed description'%>
       </div>
     </div>
-
     <div class="card">
       <div class="card-body">
         <%= form.fields_for :form_questions do |form_question| %>
-          <%= form_question.text_field :title, class: 'form-control col-md-8 mb-3 border', type: 'text', placeholder: 'Question text?' %>
-          <%= form_question.text_field :description, class: 'form-control col-md-10 border', type: 'text', placeholder: 'Question detailed description' %>
+          <%= render 'form_question_fields', f: form_question %>
         <% end %>
       </div>
+    </div>
+    <div class="btn form-button">
+      <%= link_to_add_association '', form, :form_questions, class: 'fa fa-plus-circle fa-lg', data: { association_insertion_method: :append } %>
     </div>
   </div>
 <% end %>

@@ -19,6 +19,8 @@ class FormsController < ApplicationController
   end
 
   def edit
+    @form.form_questions.build
+
     authorize @form
   end
 
