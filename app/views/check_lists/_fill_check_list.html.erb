@@ -1,4 +1,5 @@
 <%= form_with(model: @check_list, local: true) do |form| %>
+  <%= render partial: 'partials/form_errors', locals: {model: @check_list} %>
 
   <div id="checklist-form">
   <div class="form-group">
