@@ -54,6 +54,11 @@ $ bundle exec rails db:create
 $ bundle exec rails db:migrate
 ```
 4. Add role Admin
+Create user with username 'test'
+```
+$ rails db:seed
+```
+Or
 ```
 $ rails c
 => user = User.find(1)
